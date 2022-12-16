@@ -30,12 +30,9 @@ class App
         '__BSS_END_tail',
         '__BANK_0_END_tail',
         '__BANK_1_END_tail',
-        '__BANK_2_END_tail',
         '__BANK_3_END_tail',
         '__BANK_4_END_tail',
-        '__BANK_5_END_tail',
         '__BANK_6_END_tail',
-        '__BANK_7_END_tail'
     ];
 
     /**
