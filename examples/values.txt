@@ -1,0 +1,3 @@
+__CODE_head
+__CODE_END_tail
+__BSS_END_tail

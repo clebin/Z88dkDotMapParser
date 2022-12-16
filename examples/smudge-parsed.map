@@ -1,0 +1,3 @@
+__CODE_head                     = $5DCF
+__CODE_END_tail                 = $BAD1
+__BSS_END_tail                  = $C0C7

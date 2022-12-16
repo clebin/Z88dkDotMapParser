@@ -9,7 +9,8 @@ define('CR', "\n");
 // read filenames from command line arguments
 $options = getopt('', [
     'input:',
-    'output:'
+    'output:',
+    'values-file::'
 ]);
 
 App::Run($options);

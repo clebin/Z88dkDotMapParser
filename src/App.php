@@ -24,7 +24,7 @@ class App
     public static $strInput;
     public static $strOutput = '';
 
-    public static $usefulInfo = [
+    public static $valuesToParse = [
         '__CODE_head',
         '__CODE_END_tail',
         '__BSS_END_tail',
@@ -58,6 +58,10 @@ class App
         self::$inputFilename = $options['input'];
         self::$outputFilename = $options['output'];
 
+        if (isset($options['values-file'])) {
+            self::ReadValuesFile($options['values-file']);
+        }
+
         self::$strInput = file_get_contents(self::$inputFilename);
 
         self::ParseInput();
@@ -66,6 +70,25 @@ class App
         if (strlen(self::$strOutput) > 0) {
             file_put_contents(self::$outputFilename, self::$strOutput);
         }
+    }
+
+    /** Read values file */
+    public static function ReadValuesFile($filename)
+    {
+        $contents = file_get_contents($filename);
+        $line = strtok($contents, self::SEPARATOR);
+
+        self::$valuesToParse = [];
+
+        while ($line !== false) {
+
+            if ($line != '') {
+                self::$valuesToParse[] = trim($line);
+            }
+            $line = strtok(self::SEPARATOR);
+        }
+
+        print_r(self::$valuesToParse);
     }
 
     /**
@@ -78,14 +101,12 @@ class App
 
         while ($line !== false) {
             // loop through looking for info
-            foreach (self::$usefulInfo as $info) {
+            foreach (self::$valuesToParse as $info) {
 
-                if (strpos($line, $info) === 0) {
+                if ($info != '' && strpos($line, $info) === 0) {
 
                     $outLine = substr($line, 0, strpos($line, ';') - 1);
                     self::$strOutput .= $outLine . CR;
-
-                    // echo $outLine . CR;
                 }
             }
 
