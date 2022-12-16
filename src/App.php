@@ -85,7 +85,7 @@ class App
             $line = strtok(self::SEPARATOR);
         }
 
-        print_r(self::$valuesToParse);
+        // print_r(self::$valuesToParse);
     }
 
     /**
