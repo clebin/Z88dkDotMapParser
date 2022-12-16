@@ -1,0 +1,10 @@
+__CODE_head                     = $5EB4
+__CODE_END_tail                 = $A0E7
+__BSS_END_tail                  = $B4EB
+__BANK_0_END_tail               = $C6E2
+__BANK_1_END_tail               = $1C000
+__BANK_2_END_tail               = $2C000
+__BANK_3_END_tail               = $3E47D
+__BANK_7_END_tail               = $7C000
+__BANK_7_END_tail               = $7C000
+__BANK_7_END_tail               = $7C000
